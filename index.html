@@ -7,7 +7,7 @@
 
 <link href="stylesh.css" rel="stylesheet">
 <style>
-    body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(225, 241, 219);}
+    body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(249, 255, 247);}
     h1,h2{text-align:center;font-size:16px;background-color:rgb(200, 191, 253);
         width:100%;padding:20px 5px;
     }
@@ -28,8 +28,11 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
     
     .image-button{background-color:blue;color:white;position:fixed;top:10%;right:12px;border:none;border-radius:9%;
     font-size:10px;}
+    .message,.info,.name,.proffession{display:inline-block;color:white;margin-left:30px;font-size:22px;}
+.icons{background-color:rgb(41, 38, 38);position:absolute;bottom:0;width:98%;padding:5px;}
+.icons:hover{cursor:pointer;}
        .shoo{display:flex;align-items:center;justify-content:center;max-width:60%;}
-    @media  (max-width:768px){.navigation{width:50%;} .image{position:fixed;top:20px;right:10px;}}
+    @media  (max-width:768px){.navigation{width:60%;} .image{position:fixed;top:20px;right:10px;}}
     @keyframes myAnime{6%{background-position:10px  0} 50%{background-position:9px 10px} 100%{background-position:10px 4px}}
         .menu{position:fixed;top:22px;left:9px;}
         .sub{margin-top:22px;background-color:white;color:red;}
@@ -51,7 +54,15 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
             <div id="menu" class="menu"><span class="material-symbols-outlined">menu</span></div>
             <img width="50px" height="50px" src="Image.jpg" alt="my profile picture" class="image" id="image" >
             <div class="view-image" id="view-image">
-                <img src="Image.jpg" width="90vw" height="70vw">            
+                <img src="Image.jpg" width="170%" height="150%"> 
+                <div class="icons">
+                    <div class="message"><span class="material-symbols-outlined">chat</span></div>
+                      <div class="info"><span class="material-symbols-outlined">info</span></div>
+                        <div class="name"><span class="material-symbols-outlined">signature</span></div>
+                        <div class="name"><span class="material-symbols-outlined">globe_book</span></div>
+                        
+            
+            </div>
             </div>
             <button class="image-button" id="image-button">View Profile</button>
 
@@ -61,8 +72,16 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">rocket_launch</span>Beginner Tips</span></li>
                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">calendar_clock</span>Trading Sessions</span></li>
                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">newspaper</span></span>Trading News</li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined"></span></span></li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined"></span></span></li>
+                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined"></span></span>Major Pairs</li>
+                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">safety_divider</span></span>safe Haven</li>
+                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">settings</span></span>Settings</li>
+                    
+                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">atr</span></span>Other Options</li>
+                    
+                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">page_info</span></span>About</li>
+                    
+                      <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">privacy_tip</span></span>Privacy</li>
+                    
                     
                 </ul>
             </nav>
@@ -80,6 +99,11 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
     const menuEl=document.querySelector(".menu");
     const navigationEl=document.querySelector(".navigation");
     menuEl.addEventListener("click",()=>{navigationEl.classList.toggle("show")})
+    navigationEl.addEventListener("click", (e) => {
+      if (e.target === mainEl) {
+        navigationEl.classList.remove("show");
+        document.body.style.backgroundColor = "rgb(225, 241, 219)";
+      }})
     const imageButton=document.querySelector(".image-button");
     const imageView=document.querySelector(".view-image");
     const mainEl=document.querySelector("#main-content");
