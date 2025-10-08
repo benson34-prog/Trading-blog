@@ -9,7 +9,7 @@
 <style>
     body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(225, 241, 219);}
     h1,h2{text-align:center;font-size:16px;background-color:rgb(200, 191, 253);
-        width:100%;padding:10px;
+        width:100%;padding:20px 5px;
     }
     .explanation{text-align:center;font-size:11px;padding:10px;}
     .link{text-align:center;color:blue;font-size:13px;}
@@ -19,14 +19,28 @@
     transition:max-height 0.9 ease,opacity 0;width:30%;border-radius:2%;padding-top:6px;
 Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6px;}
     .show{display:block;max-height:87%;opacity:1;}
-    .showd{display:none;}
+    
+    .shoo{display:block;}
     ul .linc{margin-bottom:25px;color:white;border-bottom:1px solid rgb(177, 170, 170);}
     .linc:last-of-type{border-bottom:none;}
-    @media  (max-width:768px){.navigation{width:50%;}}
+    .image{border-radius:50%;position:fixed;top:24px;right:12px;border:2px solid white;}
+    .view-image{display:none;position:fixed;top:15%;left:15%;}
+    
+    .image-button{background-color:blue;color:white;position:fixed;top:10%;right:12px;border:none;border-radius:9%;
+    font-size:10px;}
+       .shoo{display:flex;align-items:center;justify-content:center;max-width:60%;}
+    @media  (max-width:768px){.navigation{width:50%;} .image{position:fixed;top:20px;right:10px;}}
     @keyframes myAnime{6%{background-position:10px  0} 50%{background-position:9px 10px} 100%{background-position:10px 4px}}
         .menu{position:fixed;top:22px;left:9px;}
         .sub{margin-top:22px;background-color:white;color:red;}
-        main{padding:10px;}
+          main {
+      padding: 15px;
+      text-align: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+        main.hidden {
+      opacity: 0;
+      visibility: hidden;}
 
 
     </style>
@@ -35,6 +49,12 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
         <header>
             <h1>Welcome to My trading Blog</h1>
             <div id="menu" class="menu"><span class="material-symbols-outlined">menu</span></div>
+            <img width="50px" height="50px" src="Image.jpg" alt="my profile picture" class="image" id="image" >
+            <div class="view-image" id="view-image">
+                <img src="Image.jpg" width="90%" height="70%">            
+            </div>
+            <button class="image-button" id="image-button">View Profile</button>
+
             <nav class="navigation">
                 <ul>
                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">arrow_back_2</span></span>Backtesting</li>
@@ -47,7 +67,7 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
                 </ul>
             </nav>
         </header>
-        <main>
+        <main id="main-content">
             <p class="explanation">In this site you will be able to interact and see  all steps I took to come up with my trading plans
                 that literally made me profitable.I hope you will enjoy here.<br>Remember this service is given for free let no one <br>
             try to sell to you my blogs ,</p>
@@ -59,9 +79,18 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
 <script>
     const menuEl=document.querySelector(".menu");
     const navigationEl=document.querySelector(".navigation");
-    const bodyDoc=document.querySelector(".sub")
     menuEl.addEventListener("click",()=>{navigationEl.classList.toggle("show")})
-    bodyDoc.addEventListener("click",()=>{if(navigationEl.style.display=block){navigationEl.classList.toggle("showd");}})
+    const imageButton=document.querySelector(".image-button");
+    const imageView=document.querySelector(".view-image");
+    const mainEl=document.querySelector("#main-content");
+    imageButton.addEventListener("click",()=>{imageView.classList.toggle("shoo");if (imageView.classList.contains("shoo")) {
+        document.body.style.backgroundColor = "black";
+        mainEl.classList.add("hidden");
+      } else {
+        document.body.style.backgroundColor = "rgb(225, 241, 219)";
+        mainEl.classList.remove("hidden");
+      }})
+
 </script>
     </body>
     </html>
