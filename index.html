@@ -7,35 +7,36 @@
 
 <link href="stylesh.css" rel="stylesheet">
 <style>
-    body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(249, 255, 247);}
-    h1,h2{text-align:center;font-size:16px;background-color:rgb(200, 191, 253);
-        width:100%;padding:20px 5px;
+    body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(255, 255, 255);}
+    h1{text-align:center;font-size:16px;background-color:rgb(77, 55, 204);
+        width:100%;padding:20px 5px;z-index:99;margin-top:0;position:fixed;
     }
-    .explanation{text-align:center;font-size:11px;padding:10px;}
+    .explanation{text-align:center;font-size:11px;padding:10px;margin-top:10%;}
     .link{text-align:center;color:blue;font-size:13px;}
     .material-symbols-outlined{vertical-align:middle;margin-right:4px;}
     ul{list-style-type: none;}
     .navigation{background:linear-gradient(23deg,rgb(27, 26, 26),rgb(10, 8, 8),rgb(61, 61, 92));
-    transition:max-height 0.9 ease,opacity 0;width:30%;border-radius:2%;padding-top:6px;
-Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6px;}
-    .show{display:block;max-height:87%;opacity:1;}
+    width:30%;border-radius:2%;padding-top:6px;transition:left 0.3s ease;
+Animation:myAnime 6s linear infinite;position:fixed;top:45px;left:-355px;z-index:90;}
+    .show{left:-1px;}
     
     .shoo{display:block;}
     ul .linc{margin-bottom:25px;color:white;border-bottom:1px solid rgb(177, 170, 170);}
     .linc:last-of-type{border-bottom:none;}
-    .image{border-radius:50%;position:fixed;top:24px;right:12px;border:2px solid white;}
+    .image{border-radius:50%;position:fixed;top:24px;right:22px;border:3px solid white;z-index:100;}
     .view-image{display:none;position:fixed;top:15%;left:15%;}
     
-    .image-button{background-color:blue;color:white;position:fixed;top:10%;right:12px;border:none;border-radius:9%;
-    font-size:10px;}
+    .image-button{background-color:rgb(50, 50, 59);color:white;position:fixed;top:7%;right:12px;border:none;border-radius:9%;
+    font-size:10px;z-index:100;}
     .message,.info,.name,.proffession{display:inline-block;color:white;margin-left:30px;font-size:22px;}
 .icons{background-color:rgb(41, 38, 38);position:absolute;bottom:0;width:98%;padding:5px;}
 .icons:hover{cursor:pointer;}
        .shoo{display:flex;align-items:center;justify-content:center;max-width:60%;}
-    @media  (max-width:768px){.navigation{width:60%;} .image{position:fixed;top:20px;right:10px;}}
+    @media  (max-width:768px){.navigation{width:60%;} .image{position:fixed;top:5px;right:29px;}.icons{width:100%;}}
     @keyframes myAnime{6%{background-position:10px  0} 50%{background-position:9px 10px} 100%{background-position:10px 4px}}
-        .menu{position:fixed;top:22px;left:9px;}
-        .sub{margin-top:22px;background-color:white;color:red;}
+        .menu{position:fixed;top:5px;left:9px;z-index:100;font-size:29px;}
+        .font-menu{font-size:29px;}
+        .sub{margin-top:22px;background-color:white;color:red;font-size:17px;}
           main {
       padding: 15px;
       text-align: center;
@@ -44,6 +45,8 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
         main.hidden {
       opacity: 0;
       visibility: hidden;}
+      header{color:white;}
+    
 
 
     </style>
@@ -51,7 +54,7 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
     <body>
         <header>
             <h1>Welcome to My trading Blog</h1>
-            <div id="menu" class="menu"><span class="material-symbols-outlined">menu</span></div>
+            <div id="menu" class="menu"><span class="material-symbols-outlined font-menu">menu</span></div>
             <img width="50px" height="50px" src="Image.jpg" alt="my profile picture" class="image" id="image" >
             <div class="view-image" id="view-image">
                 <img src="Image.jpg" width="170%" height="150%"> 
@@ -102,7 +105,7 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
     navigationEl.addEventListener("click", (e) => {
       if (e.target === mainEl) {
         navigationEl.classList.remove("show");
-        document.body.style.backgroundColor = "rgb(225, 241, 219)";
+        document.body.style.backgroundColor = "rgb(255, 255, 255)";
       }})
     const imageButton=document.querySelector(".image-button");
     const imageView=document.querySelector(".view-image");
@@ -111,7 +114,7 @@ Animation:myAnime 6s linear infinite;display:none;position:fixed;top:45px;left:6
         document.body.style.backgroundColor = "black";
         mainEl.classList.add("hidden");
       } else {
-        document.body.style.backgroundColor = "rgb(225, 241, 219)";
+        document.body.style.backgroundColor = "rgb(255, 255, 255)";
         mainEl.classList.remove("hidden");
       }})
 
