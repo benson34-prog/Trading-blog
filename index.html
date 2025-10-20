@@ -1,177 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>LOG IN</title>
+        <style>
+            body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(227, 228, 228)}
+            header{background-color:blue;text-align:center;color:white;padding:9px;width:100%;position:fixed;top:0;}
+            .colored{color:#fd6464;}
+            main{margin-left:20%;margin-right:20%;padding:9px;box-shadow:0 0 3px 2px rgba(0,0,0,.4);background-color:white;margin-top:30%;}
+            .center{text-align:center;}
+            ul{list-style-type: none;}
+            input{width:90%;border-radius:4%;height:40px;border:2px solid grey;margin-bottom:15px;background-color:rgb(221, 217, 217);text-align:center;}
+            input[type="checkbox"]{width:16px;height:16px;}
+            button[type="submit"],.register{width:80%;color:white;background-color:blue;font-weight:bold;padding:9px;font-size:17px;margin-bottom:19px;margin-left:47px;border-radius:6%;}
+            .register{background-color:brown;}
+            .alert1{text-align:center;font-weight:bold;font-size:19px;}
+            .alert2{background-color:rgb(69, 255, 239);padding:5px;text-align:center;}
+            .forgot,.reminder{text-align:center;margin:10px;}
+            a{text-decoration: none;}
+            .log-in-alert{background-color:red;text-align:center;padding:30px;display:none;}
+            .show{display:flex;justify-content:center;align-items:center;}
+            .dots{vertical-align:top;font-size:20px;animation:mAnime 2s linear infinite;}
+            @keyframes mAnime{0%{transform:scale(0.2) rotate(0)} 50%{transform:scale(1.2);background-color:white;}51%{background-color:red;transform:scale(1.4) rotate(180deg)} 80%{background-color:white;} 100%{transform:scale(0.2) rotate(360deg)}}
+            @media (max-width:768px) {main{margin-left:40px;margin-right:40px;padding:9px;}}
 
-<link href="stylesh.css" rel="stylesheet">
-<style>
-  html,body{height:100%;}
-    body{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background-color:rgb(255, 255, 255);}
-    h1{text-align:center;font-size:16px;background-color:rgb(77, 55, 204);
-        width:100%;padding:20px 5px;z-index:99;margin-top:0;position:fixed;
-    }
-    .explanation{text-align:center;font-size:12px;padding:10px;margin-top:20%;}
-    .link{text-align:center;color:blue;font-size:13px;background-color:green;color:white;padding:9px;margin-bottom:10px;}
-    .link:hover{background-color:red;padding:15px;cursor:pointer;}
-    .material-symbols-outlined{vertical-align:middle;margin-right:4px;}
-    ul{list-style-type: none;}
-    .navigation{background:linear-gradient(23deg,rgb(27, 26, 26),rgb(10, 8, 8),rgb(61, 61, 92));
-    width:30%;padding-top:6px;transition:left 0.3s ease;max-height:95%;overflow-y:auto;
-position:fixed;top:45px;left:-150%;z-index:90;margin-top:-2px;}
-    .show{left:-1px;}
-    
-    .shoo{display:block;}
-    ul .linc{margin-bottom:25px;color:white;border-bottom:1px solid rgb(129, 129, 129);margin-left:-34px;padding-bottom:10px;}
-    .linc:last-of-type{border-bottom:none;}
-    .lin{padding-top:20px;background-color:blue;padding-bottom:20px;}
-    .image{border-radius:50%;position:fixed;top:24px;right:22px;border:3px solid white;z-index:100;}
-    .view-image{position:fixed;top:-150%;right:-300%;transition:top 0.5s ease,right 0.5s ease;}
-    
-    .image-button{background-color:rgb(50, 50, 59);color:white;position:fixed;top:7%;right:12px;border:none;border-radius:9%;
-    font-size:10px;z-index:100;}
-    .message,.info,.name,.proffession{display:inline-block;color:white;margin-left:30px;font-size:22px;}
-.icons{background-color:rgb(41, 38, 38);position:absolute;bottom:0;width:98%;padding:5px;}
-.icons:hover{cursor:pointer;}
-       .shoo{display:flex;align-items:center;justify-content:center;max-width:60%;top:15%;right:15%;}
-    @media  (max-width:768px){.navigation{width:70%;} .image{position:fixed;top:5px;right:29px;}.icons{width:100%;}}
-    @keyframes myAnime{6%{background-position:10px  0} 50%{background-position:9px 10px} 100%{background-position:10px 4px}}
-        .menu{position:fixed;top:5px;left:9px;z-index:100;font-size:29px;}
-        .font-menu{font-size:29px;}
-        .sub{margin-top:22px;background-color:white;color:red;font-size:17px;}
-          main {
-      padding: 15px;
-      text-align: center;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-        main.hidden {
-      opacity: 0;
-      visibility: hidden;}
-      header{color:white;}
-      .version{margin-bottom:-17%;}
-
-      /*footer styles*/
-      footer{background:#0b0c10;color:#c5c6c7;text-align:center;font-family:'popins',sans-serif;}
-      .footer-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:20px;}
-      .footer-container div{max-width:300px;margin:10px;}
-      .footer-container h3{color:#66fcf1;margin-bottom:10px;}
-      .footer-container a{color:#45a29e;text-decoration:none;}
-      .footer-container a:hover{color:#66fcf1;}
-      .follow a{font-size:22px;margin:0 8px;}
-      .copyright{border-top:1px solid #1f2833;padding-top:10px;font-size:14px;}
-      .foot-par{font-size:12px;}
-      .footer-container .about{color:rgb(255, 106, 106);}
-    
-
-    
-
-
-    </style>
+            </style>
+        
     </head>
     <body>
         <header>
-            <h1>Welcome to My trading Blog</h1>
-            <div id="menu" class="menu"><span class="material-symbols-outlined font-menu">menu</span></div>
-            <img width="50px" height="50px" src="Image.jpg" alt="my profile picture" class="image" id="image" >
-            <div class="view-image" id="view-image">
-                <img src="Image.jpg" width="170%" height="150%"> 
-                <div class="icons">
-                    <div class="message"><span class="material-symbols-outlined">chat</span></div>
-                      <div class="info"><span class="material-symbols-outlined">info</span></div>
-                        <div class="name"><span class="material-symbols-outlined">signature</span></div>
-                        <div class="name"><span class="material-symbols-outlined">globe_book</span></div>
-                        
-            
-            </div>
-            </div>
-            <button class="image-button" id="image-button">View Profile</button>
+            <h1>BENSONTECH <b class="colored">Funded</b></h1>
 
-            <nav class="navigation">
-                <ul>
-                                      <li class="linc lin" onclick="window.location.href='#'"><span class="material-symbols-outlined">home</span></span>Home</li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">arrow_back_2</span></span>Backtesting</li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">rocket_launch</span>Beginner Tips</span></li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">calendar_clock</span>Trading Sessions</span></li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">newspaper</span></span>Trading News</li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined"></span></span>Major Pairs</li>
-                    <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">safety_divider</span></span>safe Haven</li>
-                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">settings</span></span>Settings</li>
-                    
-                     <li class="linc lin" onclick="window.location.href='#'"><span class="material-symbols-outlined">atr</span></span>Other Options</li>
-                    
-                     <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">page_info</span></span>About</li>
-                    
-                      <li class="linc" onclick="window.location.href='#'"><span class="material-symbols-outlined">privacy_tip</span></span>Privacy</li>
-                              
-                      <li class="linc version" onclick="window.location.href='#'"><span class="material-symbols-outlined"></span></span>version 1.4.56</li>
-                    
-                    
-                    
-                </ul>
-            </nav>
         </header>
-        <main id="main-content">
-            <p class="explanation">In this site you will be able to interact and see  all steps I took to come up with my trading plans
-                that literally made me profitable.I hope you will enjoy here.<br>Remember this service is given for free let no one <br>
-            try to sell to you my blogs ,</p>
-            <h2 class="sub">Bensons's PDF showing every step in his trading strategy</h2>
-            <div class="link" onclick="window.location.href='file.pdf'"><b>CLICK HERE TO DOWNLOAD THE BLOG
-              <div><span class="material-symbols-outlined">download</span></div>
-            </div>
+        <main>
+            <p class="alert1">◾️◾️◾️Sign In To Your Account◾️◾️◾️</p>
+            <p class="alert2">Log in using your <br>email and password<br>
+                or <a href="#"><b>CLICK HERE</b></a> to register</p>
+                 <p id="alert1" class="log-in-alert"><span class="dots">🔸🔹🔸🔸</span> Loading your details<br>please wait</p>
+                <section>
+                    <form action="#">
+                        <ul role="tablist">
+                           <li class="center"> <label for="email">Enter your Email:</label></li>
+                           <li><input role="tab" type="email" id="email" aria-required="true" placeholder="enter email"></li>
+                          
+                           <li class="center"><label for="password">Enter Password:</label></li>
+                           <li><input type="password" role="tab" id="password" required placeholder="enter password" pattern="Benison"></li>
+                           <li id="alert" class="alert"></li>
+                           <li><label><input type="checkbox">Remember me</label></li>
+                           <li class="forgot"><a href="#">Forgot Password?</a></li>
 
-         <iframe src="file.pdf" width="100%" height="600px"></iframe>   
+                        </ul>
+                        <button role="tab" aria-disabled="false" id="login" type="submit">Log In</button>
+                    </form>
+                    <p class="reminder">Dont have an Account?</p>
+                    <button class="register">Register</button>
+
+                </section>
         </main>
-<footer>
-  <div class="footer-container">
-    <div class="about">
-    <h3>
-      About BENSONTECH Forex
-    </h3>
-    <p class="foot-par">BENSONTECH Forex is a learning <br>platform dedicated to helping beginners<br>
-    and traders understand the Forex market<br>through simplified lessons,tips,and real market insights.</p>
-</div>
-<div class="contact">
-<h3>Contact</h3>
-<p>Email: <a href="mailto:bensn0636@gmail.com">bensn0636@gmail.com</a></p>
-<p>phone: <a href="tel:0793790498">+245 793 790 98</a></p>
-</div>
-<div class="follow">
-<h3>Follow Us</h3>
-<a href="#"><i class="fab fa-whatsapp"></i></a>
-<a href="#"><i class="fab fa-x-twitter"></i></a>
-<a href="#"><i class="fab fa-facebook"></i></a>
-<a href="#"><i class="fab fa-linkedin"></i></a>
-</div>
-</div>
-  </div>
-  <p class="copyright">
-    ©️ 2025 BENSONTECH Forex | For educational purposes only - not financial advice.
+        <script>
+            const alert1El=document.getElementById("alert1");
+            const alertEl=document.getElementById("alert");
+            const buttonEl=document.getElementById("login")
+            const emailInput=document.getElementById("email")
+            const passwordInput=document.getElementById("password")
 
-  </p>
-</footer>
-
-<script>
-    const menuEl=document.querySelector(".menu");
-    const navigationEl=document.querySelector(".navigation");
-    menuEl.addEventListener("click",()=>{navigationEl.classList.toggle("show")})
-    navigationEl.addEventListener("click", (e) => {
-      if (e.target === mainEl) {
-        navigationEl.classList.remove("show");
-        document.body.style.backgroundColor = "rgb(255, 255, 255)";
-      }})
-    const imageButton=document.querySelector(".image-button");
-    const imageView=document.querySelector(".view-image");
-    const mainEl=document.querySelector("#main-content");
-    imageButton.addEventListener("click",()=>{imageView.classList.toggle("shoo");if (imageView.classList.contains("shoo")) {
-        document.body.style.backgroundColor = "black";
-        mainEl.classList.add("hidden");
-      } else {
-        document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        mainEl.classList.remove("hidden");
-      }})
-
-</script>
+            buttonEl.addEventListener("click",()=>{ const email=emailInput.value.trim();
+                const password= passwordInput.value.trim();
+                if(email && password){
+                buttonEl.textContent="...loging in";setTimeout(()=>{
+                alert1El.classList.toggle("show")},1000)
+                buttonEl.setAttribute("aria-disabled","true")
+                buttonEl.style.opacity="0.6";
+                buttonEl.style.pointerEvents="none"}
+        } )
+        </script>
     </body>
     </html>
